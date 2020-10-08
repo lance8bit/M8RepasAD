@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuOpcions">
+
+    <Button
+        android:id="@+id/AddIncidenceBtn"
+        android:layout_width="80pt"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="272dp"
+        android:text="@string/AddIncText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/ListIncidencesBtn"
+        android:layout_width="80pt"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/ListIncText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RemoveIncidencesBtn" />
+
+    <Button
+        android:id="@+id/RemoveIncidencesBtn"
+        android:layout_width="80pt"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/RemIncText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/AddIncidenceBtn" />
+
+    <Button
+        android:id="@+id/HelpBtn"
+        android:layout_width="80pt"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/HelpText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ListIncidencesBtn" />
+</androidx.constraintlayout.widget.ConstraintLayout>
