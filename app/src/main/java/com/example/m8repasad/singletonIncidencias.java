@@ -16,7 +16,7 @@ public class singletonIncidencias {
 
     private singletonIncidencias(){
         listIncidencias = new ArrayList<Incidencia>();
-        listIncidencias.add(new Incidencia("INCDEFAULT", "ERROR 303", "High"));
+        //listIncidencias.add(new Incidencia("INCDEFAULT", "ERROR 303", "High"));
     }
 
     public ArrayList<Incidencia> getListIncidencias(){
@@ -25,5 +25,9 @@ public class singletonIncidencias {
 
     public void addToListEquipos(Incidencia nIncidencia){
         listIncidencias.add(nIncidencia);
+    }
+
+    public static void removeEntries() {
+        newInstance = new singletonIncidencias();
     }
 }

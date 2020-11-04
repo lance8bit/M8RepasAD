@@ -1,24 +1,23 @@
 package com.example.m8repasad.ui.Menu;
 
-import androidx.lifecycle.ViewModelProviders;
-
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
-import com.example.m8repasad.ui.AddIncidence.AddIncidenceFragment;
 import com.example.m8repasad.FragmentInteractionListener;
+import com.example.m8repasad.R;
+import com.example.m8repasad.singletonIncidencias;
+import com.example.m8repasad.ui.AddIncidence.AddIncidenceFragment;
 import com.example.m8repasad.ui.Help.HelpFragment;
 import com.example.m8repasad.ui.ListIncidence.ListIncidenceFragment;
-import com.example.m8repasad.R;
-import com.example.m8repasad.ui.RemoveIncidence.RemoveIncidenceFragment;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 public class MenuFragment extends Fragment {
 
@@ -62,9 +61,13 @@ public class MenuFragment extends Fragment {
         RemoveIncidencesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*
                 Fragment fragment = new RemoveIncidenceFragment();
                 FragmentInteractionListener fragmentInteractionListener = (FragmentInteractionListener)getActivity();
                 fragmentInteractionListener.changeFragment(fragment);
+                */
+                singletonIncidencias.getNewInstance().removeEntries();
+                Toast.makeText(getContext(), "Toast cleared", Toast.LENGTH_SHORT).show();
             }
         });
 
