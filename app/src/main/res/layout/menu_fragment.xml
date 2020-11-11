@@ -10,43 +10,52 @@
         android:id="@+id/AddIncidenceBtn"
         android:layout_width="80pt"
         android:layout_height="wrap_content"
-        android:layout_marginTop="272dp"
+        android:layout_marginTop="220dp"
         android:text="@string/AddIncText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/ListIncidencesBtn"
-        android:layout_width="80pt"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="@string/ListIncText"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RemoveIncidencesBtn" />
 
     <Button
         android:id="@+id/RemoveIncidencesBtn"
         android:layout_width="80pt"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:text="@string/RemIncText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AddIncidenceBtn" />
+
+    <Button
+        android:id="@+id/LoadBtn"
+        android:layout_width="80pt"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Load DB"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HelpBtn"
+        app:layout_constraintVertical_bias="0.013" />
 
     <Button
         android:id="@+id/HelpBtn"
         android:layout_width="80pt"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
         android:text="@string/HelpText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ListIncidencesBtn" />
+
+    <Button
+        android:id="@+id/ListIncidencesBtn"
+        android:layout_width="80pt"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/ListIncText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RemoveIncidencesBtn" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

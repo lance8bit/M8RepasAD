@@ -23,11 +23,15 @@ public class singletonIncidencias {
         return this.listIncidencias;
     }
 
-    public void addToListEquipos(Incidencia nIncidencia){
+    public void addToListIncidencias(Incidencia nIncidencia){
         listIncidencias.add(nIncidencia);
     }
 
     public static void removeEntries() {
         newInstance = new singletonIncidencias();
+    }
+
+    public void addArrayList(ArrayList<Incidencia> incidencias){
+        listIncidencias = incidencias;
     }
 }

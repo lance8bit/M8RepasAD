@@ -1,5 +1,6 @@
 package com.example.m8repasad.ui.AddIncidence;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.m8repasad.Incidencia;
 import com.example.m8repasad.R;
+import com.example.m8repasad.db.IncidenciaDBHelper;
 import com.example.m8repasad.singletonIncidencias;
 
 import java.util.Random;
@@ -21,6 +23,9 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 public class AddIncidenceFragment extends Fragment {
+
+    private IncidenciaDBHelper dbHelper;
+    private SQLiteDatabase db;
 
     private AddIncidenceViewModel mViewModel;
     private Button addInsidenceBtn;
@@ -42,6 +47,9 @@ public class AddIncidenceFragment extends Fragment {
         editTextTitleInsidence = (EditText) root.findViewById(R.id.editTextTitleIncidence);
         spinnerPriority = (Spinner)  root.findViewById(R.id.prioritySpin);
 
+        dbHelper = new IncidenciaDBHelper(getContext());
+        db = dbHelper.getWritableDatabase();
+
         addInsidenceBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,8 +59,10 @@ public class AddIncidenceFragment extends Fragment {
                 String inc_name = "INC".concat(Integer.toString(rd));
 
                 if(!editTextTitleInsidence.getText().toString().equals(null)){
+
                     Incidencia incidencia = new Incidencia(inc_name, editTextTitleInsidence.getText().toString(), spinnerPriority.getSelectedItem().toString());
-                    singletonIncidencias.getNewInstance().addToListEquipos(incidencia);
+                    dbHelper.insertIncidencia(db, incidencia);
+                    singletonIncidencias.getNewInstance().addToListIncidencias(incidencia);
 
                     Toast.makeText(getContext(), "INCIDENCIA " + inc_name + " CREADA", Toast.LENGTH_SHORT).show();
                     editTextTitleInsidence.setText("");
