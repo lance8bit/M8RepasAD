@@ -13,7 +13,6 @@ import android.widget.Toast;
 import com.example.m8repasad.Incidencia;
 import com.example.m8repasad.R;
 import com.example.m8repasad.db.IncidenciaDBHelper;
-import com.example.m8repasad.singletonIncidencias;
 
 import java.util.Random;
 
@@ -45,7 +44,7 @@ public class AddIncidenceFragment extends Fragment {
 
         addInsidenceBtn = (Button) root.findViewById(R.id.addInsidenceBtn);
         editTextTitleInsidence = (EditText) root.findViewById(R.id.editTextTitleIncidence);
-        spinnerPriority = (Spinner)  root.findViewById(R.id.prioritySpin);
+        spinnerPriority = (Spinner)  root.findViewById(R.id.langSpin);
 
         dbHelper = new IncidenciaDBHelper(getContext());
         db = dbHelper.getWritableDatabase();
@@ -62,12 +61,12 @@ public class AddIncidenceFragment extends Fragment {
 
                     Incidencia incidencia = new Incidencia(inc_name, editTextTitleInsidence.getText().toString(), spinnerPriority.getSelectedItem().toString());
                     dbHelper.insertIncidencia(db, incidencia);
-                    singletonIncidencias.getNewInstance().addToListIncidencias(incidencia);
+                    //singletonIncidencias.getNewInstance().addToListIncidencias(incidencia);
 
-                    Toast.makeText(getContext(), "INCIDENCIA " + inc_name + " CREADA", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getResources().getString(R.string.incidence)+ " " + inc_name + " " + getResources().getString(R.string.created), Toast.LENGTH_SHORT).show();
                     editTextTitleInsidence.setText("");
                 } else {
-                    Toast.makeText(getContext(), "ERROR, no has afegit el titol", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), getResources().getString(R.string.noTitleMessage), Toast.LENGTH_SHORT).show();
                 }
             }
         });

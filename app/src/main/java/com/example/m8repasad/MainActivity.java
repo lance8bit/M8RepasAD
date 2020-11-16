@@ -2,7 +2,9 @@ package com.example.m8repasad;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -24,12 +26,28 @@ public class MainActivity extends AppCompatActivity {
         passwordEdTx = (EditText) findViewById(R.id.passwordEdTxt);
         login_btn = (Button) findViewById(R.id.loginBtn);
 
+        SharedPreferences sharedPref = getSharedPreferences(getString(R.string.savedPreferenceFile), getBaseContext().MODE_PRIVATE);
+        String shUsername = sharedPref.getString("username", "");
+        String shPass = sharedPref.getString("password", "");
+
+        usernameEdTx.setText(shUsername);
+        passwordEdTx.setText(shPass);
+
+        final Usuaris user1 = new Usuaris("admin", "admin");
+
+        if(shUsername.equals(user1.getUsername()) &&  shPass.equals(user1.getPassword()) ){
+            Toast.makeText(MainActivity.this, R.string.loginShared, Toast.LENGTH_SHORT).show();
+            Intent menuOpcions = new Intent(getApplicationContext(), fragmentContainer.class);
+            startActivity(menuOpcions);
+        }
+
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 String userInput = usernameEdTx.getText().toString();
                 String passInput = passwordEdTx.getText().toString();
-                Usuaris user1 = new Usuaris("steve", "1234");
+
                 Log.i("userInp", userInput);
                 Log.i("passInp", passInput);
 
@@ -38,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     Intent menuOpcions = new Intent(getApplicationContext(), fragmentContainer.class);
                     Toast.makeText(MainActivity.this, R.string.successLogin, Toast.LENGTH_SHORT).show();
+                    Context context = getApplicationContext();
+                    SharedPreferences sharedPref = context.getSharedPreferences(
+                            getString(R.string.savedPreferenceFile), context.MODE_PRIVATE);
+
+                    SharedPreferences.Editor editor = sharedPref.edit();
+                    editor.putString("username", usernameEdTx.getText().toString());
+                    editor.putString("password", passwordEdTx.getText().toString());
+                    editor.commit();
                     startActivity(menuOpcions);
                 }
             }

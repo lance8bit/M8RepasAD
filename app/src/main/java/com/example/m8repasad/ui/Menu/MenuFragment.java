@@ -1,5 +1,7 @@
 package com.example.m8repasad.ui.Menu;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,6 +16,7 @@ import com.example.m8repasad.R;
 import com.example.m8repasad.db.IncidenciaDBHelper;
 import com.example.m8repasad.singletonIncidencias;
 import com.example.m8repasad.ui.AddIncidence.AddIncidenceFragment;
+import com.example.m8repasad.ui.Config.ConfigFragment;
 import com.example.m8repasad.ui.Help.HelpFragment;
 import com.example.m8repasad.ui.ListIncidence.ListIncidenceFragment;
 
@@ -31,7 +34,7 @@ public class MenuFragment extends Fragment {
     private IncidenciaDBHelper dbHelper;
     private SQLiteDatabase db;
 
-    private Button AddIncidenceBtn, ListIncidencesBtn, RemoveIncidencesBtn, HelpBtn, LoadDB;
+    private Button AddIncidenceBtn, ListIncidencesBtn, RemoveIncidencesBtn, HelpBtn, ConfigBtn;
 
     public static MenuFragment newInstance() {
         return new MenuFragment();
@@ -47,7 +50,7 @@ public class MenuFragment extends Fragment {
         ListIncidencesBtn = (Button) root.findViewById(R.id.ListIncidencesBtn);
         RemoveIncidencesBtn = (Button) root.findViewById(R.id.RemoveIncidencesBtn);
         HelpBtn = (Button) root.findViewById(R.id.HelpBtn);
-        LoadDB = (Button) root.findViewById(R.id.LoadBtn);
+        ConfigBtn = (Button) root.findViewById(R.id.ConfigBtn);
 
         dbHelper = new IncidenciaDBHelper(getContext());
         db = dbHelper.getWritableDatabase();
@@ -73,33 +76,39 @@ public class MenuFragment extends Fragment {
         RemoveIncidencesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*
-                Fragment fragment = new RemoveIncidenceFragment();
-                FragmentInteractionListener fragmentInteractionListener = (FragmentInteractionListener)getActivity();
-                fragmentInteractionListener.changeFragment(fragment);
-                */
-                singletonIncidencias.getNewInstance().removeEntries();
-                Toast.makeText(getContext(), "Toast cleared", Toast.LENGTH_SHORT).show();
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle(getResources().getString(R.string.ImportantInfo));
+                builder.setMessage(getResources().getString(R.string.infoMessage));
+                builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //singletonIncidencias.getNewInstance().removeEntries();
+                        dbHelper.dropAllIncidencies(db);
+                        Toast.makeText(getContext(), getResources().getString(R.string.successDeleteIncidences), Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.setNegativeButton(getResources().getString(R.string.no), null);
+                AlertDialog dialog = builder.create();
+                dialog.show();
             }
         });
 
         HelpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Fragment fragment = new HelpFragment();
+                /*Fragment fragmentHelp = new HelpFragment();
                 FragmentInteractionListener fragmentInteractionListener = (FragmentInteractionListener)getActivity();
-                fragmentInteractionListener.changeFragment(fragment);
+                fragmentInteractionListener.changeFragment(fragmentHelp);*/
             }
         });
 
-        LoadDB.setOnClickListener(new View.OnClickListener() {
+        ConfigBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<Incidencia> incidencias;
-
-                incidencias = dbHelper.getAllIncidencies();
-                singletonIncidencias.getNewInstance().addArrayList(incidencias);
-
+                Fragment fragmentConfig = new ConfigFragment();
+                FragmentInteractionListener fragmentInteractionListener = (FragmentInteractionListener)getActivity();
+                fragmentInteractionListener.changeFragment(fragmentConfig);
             }
         });
 

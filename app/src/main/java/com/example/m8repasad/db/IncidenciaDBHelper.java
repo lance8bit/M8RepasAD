@@ -48,6 +48,10 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
         }
     }
 
+    public void dropAllIncidencies(SQLiteDatabase db){
+        db.execSQL("DELETE FROM " + IncidenciaEntry.TABLE_NAME);
+    }
+
     public ArrayList<Incidencia> getAllIncidencies(){
         ArrayList<Incidencia> incidencias = new ArrayList<Incidencia>();
 
@@ -66,5 +70,6 @@ public class IncidenciaDBHelper extends SQLiteOpenHelper {
 
         return incidencias;
     }
+
 
 }

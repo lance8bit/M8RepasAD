@@ -1,6 +1,7 @@
 package com.example.m8repasad.ui.ListIncidence;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.m8repasad.Incidencia;
 import com.example.m8repasad.R;
+import com.example.m8repasad.db.IncidenciaDBHelper;
 import com.example.m8repasad.singletonIncidencias;
 
 import java.util.ArrayList;
@@ -26,6 +28,9 @@ public class ListIncidenceFragment extends Fragment {
     private ListIncidenceViewModel mViewModel;
     private RecyclerView recyclerView;
 
+    private IncidenciaDBHelper dbHelper;
+    private SQLiteDatabase db;
+
     public static ListIncidenceFragment newInstance() {
         return new ListIncidenceFragment();
     }
@@ -37,15 +42,18 @@ public class ListIncidenceFragment extends Fragment {
         View root = inflater.inflate(R.layout.list_incidence_fragment, container, false);
         recyclerView = root.findViewById(R.id.recyclerIncidences);
 
-            //FOR SINGLETON CHECK
-            ArrayList<Incidencia> reto = singletonIncidencias.getNewInstance().getListIncidencias();
+        //FOR SINGLETON CHECK
+        //ArrayList<Incidencia> reto = singletonIncidencias.getNewInstance().getListIncidencias();
 
-            for(int x = 0; x < reto.size(); x++){
-                Log.i("RECY", "TITLE: " + reto.get(x).getTitleIncidencia());
-            }
+        //for(int x = 0; x < reto.size(); x++){
+            //Log.i("RECY", "TITLE: " + reto.get(x).getTitleIncidencia());
+        //}
 
         LinearLayoutManager rLManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(rLManager);
+
+        dbHelper = new IncidenciaDBHelper(getContext());
+        db = dbHelper.getWritableDatabase();
 
         MainAdapter rAdapter = new MainAdapter();
         recyclerView.setAdapter(rAdapter);
@@ -58,7 +66,8 @@ public class ListIncidenceFragment extends Fragment {
         private ArrayList<Incidencia> arrayListIncidencias;
 
         public MainAdapter(){
-            arrayListIncidencias = singletonIncidencias.getNewInstance().getListIncidencias();
+            //arrayListIncidencias = singletonIncidencias.getNewInstance().getListIncidencias();
+            arrayListIncidencias = dbHelper.getAllIncidencies();
         }
 
         @NonNull

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddIncidence">
+    tools:context=".ui.AddIncidence.AddIncidenceFragment">
 
     <EditText
         android:id="@+id/editTextTitleIncidence"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="284dp"
         android:ems="10"
-        android:hint="Title of Incidence"
+        android:hint="@string/titleHint"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
-        android:id="@+id/prioritySpin"
+        android:id="@+id/langSpin"
         android:layout_width="90pt"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -36,10 +36,10 @@
         android:layout_height="wrap_content"
         android:paddingLeft="10pt"
         android:paddingRight="10pt"
-        android:text="Add Insidence"
+        android:text="@string/AddIncTS"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prioritySpin"
+        app:layout_constraintTop_toBottomOf="@+id/langSpin"
         app:layout_constraintVertical_bias="0.062" />
 </androidx.constraintlayout.widget.ConstraintLayout>

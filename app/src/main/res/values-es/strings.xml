@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">M8RepasoAD</string>
+    <string name="badLogin">Error al iniciar sessión</string>
+    <string name="successLogin">Incio de sessión correcto</string>
+    <string name="loginShared">Incio de sessión correcto por credenciales guardadas</string>
+    <string name="shaPrefText">Eliminar shared preferences:</string>
+    <string name="credDeleted">Credenciales eliminadas</string>
+    <string name="shaTextL">Eliminar credenciales</string>
+    <string name="HelpText">Ayuda</string>
+    <string name="AddIncText">Añadir incidencias</string>
+    <string name="AddIncTS">Añadir incidencias</string>
+    <string name="titleHint">Titulo de la incidencia</string>ç
+    <string name="configTitle">Configuració</string>
+    <string name="langText">Idioma:</string>
+    <string name="RemIncText">Eliminar incidencias</string>
+    <string name="ListIncText">Listar incidencias</string>
+    <string name="savedPreferenceFile">SavedPreferences</string>
+    <string-array name="priorityTexts">
+        <item>Alto</item>
+        <item>Medio</item>
+        <item>Bajo</item>
+    </string-array>
+    <string-array name="langNames">
+        <item>Español</item>
+        <item>Ingles</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ImportantInfo">Información importante</string>
+    <string name="infoMessage">Estas seguro de borrar todas las entradas?</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="successDeleteIncidences">Incidencias eliminadas</string>
+    <string name="incidence">Incidencia</string>
+    <string name="created">creada</string>
+    <string name="noTitleMessage">ERROR, no has afegit el titol!</string>
+</resources>
