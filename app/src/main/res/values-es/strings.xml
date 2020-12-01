@@ -7,6 +7,7 @@
     <string name="credDeleted">Credenciales eliminadas</string>
     <string name="shaTextL">Eliminar credenciales</string>
     <string name="HelpText">Ayuda</string>
+    <string name="priorText">Prioridad</string>
     <string name="AddIncText">Añadir incidencias</string>
     <string name="AddIncTS">Añadir incidencias</string>
     <string name="titleHint">Titulo de la incidencia</string>ç
@@ -15,10 +16,19 @@
     <string name="RemIncText">Eliminar incidencias</string>
     <string name="ListIncText">Listar incidencias</string>
     <string name="savedPreferenceFile">SavedPreferences</string>
+    <string name="low">Bajo</string>
+    <string name="medium">Medio</string>
+    <string name="high">Alto</string>
     <string-array name="priorityTexts">
-        <item>Alto</item>
-        <item>Medio</item>
-        <item>Bajo</item>
+        <item>@string/low</item>
+        <item>@string/medium</item>
+        <item>@string/high</item>
+    </string-array>
+    <string-array name="priorityFilters">
+        <item>Todos</item>
+        <item>Bajos</item>
+        <item>Medios</item>
+        <item>Altos</item>
     </string-array>
     <string-array name="langNames">
         <item>Español</item>
@@ -28,10 +38,21 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ImportantInfo">Información importante</string>
     <string name="infoMessage">Estas seguro de borrar todas las entradas?</string>
+    <string name="infoMessageOne">Estas seguro de borrar esta entrada?</string>
+    <string name="warningMessage">Alerta</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
     <string name="successDeleteIncidences">Incidencias eliminadas</string>
+    <string name="successDeleteIncidence">Incidencia eliminada</string>
     <string name="incidence">Incidencia</string>
     <string name="created">creada</string>
     <string name="noTitleMessage">ERROR, no has afegit el titol!</string>
+    <string name="titleText">Título de la incidencia</string>
+    <string name="descText">Descripción</string>
+    <string name="statusText">Estado</string>
+    <string name="dateText">Fecha de creación</string>
+    <string name="resultDummy">Resultado</string>
+    <string name="pending">Pendiente</string>
+    <string name="assigned">Asignada</string>
+    <string name="solved">Solucionada</string>
 </resources>

@@ -11,21 +11,18 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.m8repasad.FragmentInteractionListener;
-import com.example.m8repasad.Incidencia;
 import com.example.m8repasad.R;
 import com.example.m8repasad.db.IncidenciaDBHelper;
-import com.example.m8repasad.singletonIncidencias;
 import com.example.m8repasad.ui.AddIncidence.AddIncidenceFragment;
 import com.example.m8repasad.ui.Config.ConfigFragment;
-import com.example.m8repasad.ui.Help.HelpFragment;
 import com.example.m8repasad.ui.ListIncidence.ListIncidenceFragment;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProviders;
-
-import java.util.ArrayList;
 
 public class MenuFragment extends Fragment {
 
@@ -54,6 +51,9 @@ public class MenuFragment extends Fragment {
 
         dbHelper = new IncidenciaDBHelper(getContext());
         db = dbHelper.getWritableDatabase();
+
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
         AddIncidenceBtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -14,6 +14,7 @@ import com.example.m8repasad.Incidencia;
 import com.example.m8repasad.R;
 import com.example.m8repasad.db.IncidenciaDBHelper;
 
+import java.time.Instant;
 import java.util.Random;
 
 import androidx.annotation.NonNull;
@@ -28,7 +29,7 @@ public class AddIncidenceFragment extends Fragment {
 
     private AddIncidenceViewModel mViewModel;
     private Button addInsidenceBtn;
-    private EditText editTextTitleInsidence;
+    private EditText editTextTitleInsidence, descEDTXT;
     private Spinner spinnerPriority;
 
     public static AddIncidenceFragment newInstance() {
@@ -45,6 +46,7 @@ public class AddIncidenceFragment extends Fragment {
         addInsidenceBtn = (Button) root.findViewById(R.id.addInsidenceBtn);
         editTextTitleInsidence = (EditText) root.findViewById(R.id.editTextTitleIncidence);
         spinnerPriority = (Spinner)  root.findViewById(R.id.langSpin);
+        descEDTXT = (EditText) root.findViewById(R.id.descInput);
 
         dbHelper = new IncidenciaDBHelper(getContext());
         db = dbHelper.getWritableDatabase();
@@ -58,8 +60,19 @@ public class AddIncidenceFragment extends Fragment {
                 String inc_name = "INC".concat(Integer.toString(rd));
 
                 if(!editTextTitleInsidence.getText().toString().equals(null)){
+                    long currdate = Instant.now().getEpochSecond();
+                    String curdate = String.valueOf(currdate);
+                    String prioridad;
 
-                    Incidencia incidencia = new Incidencia(inc_name, editTextTitleInsidence.getText().toString(), spinnerPriority.getSelectedItem().toString());
+                    if(spinnerPriority.getSelectedItem().toString().equals(getResources().getString(R.string.low))){
+                        prioridad = "0";
+                    } else if(spinnerPriority.getSelectedItem().toString().equals(getResources().getString(R.string.medium))){
+                        prioridad = "1";
+                    } else {
+                        prioridad = "2";
+                    }
+
+                    Incidencia incidencia = new Incidencia(inc_name, editTextTitleInsidence.getText().toString(), prioridad, descEDTXT.getText().toString(), 0, curdate );
                     dbHelper.insertIncidencia(db, incidencia);
                     //singletonIncidencias.getNewInstance().addToListIncidencias(incidencia);
 

@@ -7,6 +7,11 @@
     <string name="credDeleted">Credentials deleted</string>
     <string name="shaTextL">Delete credentials</string>
     <string name="HelpText">Help</string>
+    <string name="priorText">Priority</string>
+    <string name="titleText">Incidence title</string>
+    <string name="descText">Description</string>
+    <string name="statusText">Status</string>
+    <string name="dateText">Date of creation</string>
     <string name="AddIncText">Add Incidences</string>
     <string name="AddIncTS">Add incidence</string>
     <string name="titleHint">Title of Incidence</string>
@@ -16,22 +21,38 @@
     <string name="ListIncText">List Incidences</string>
     <string name="ImportantInfo">Important information</string>
     <string name="infoMessage">Are you sure about deleting all entries?</string>
+    <string name="infoMessageOne">Are you sure about deleting this entry?</string>
+    <string name="warningMessage">Alert</string>
     <string name="successDeleteIncidences">Incidences removed</string>
+    <string name="successDeleteIncidence">Incidence removed</string>
     <string name="incidence">Incidence</string>
     <string name="created">created</string>
     <string name="yes">Yes</string>
     <string name="no">no</string>
     <string name="savedPreferenceFile">SavedPreferences</string>
+    <string name="low">Low</string>
+    <string name="medium">Medium</string>
+    <string name="high">High</string>
     <string-array name="priorityTexts">
-        <item>High</item>
-        <item>Medium</item>
-        <item>Low</item>
+        <item>@string/low</item>
+        <item>@string/medium</item>
+        <item>@string/high</item>
+    </string-array>
+    <string-array name="priorityFilters">
+        <item>All</item>
+        <item>Lows</item>
+        <item>Mediums</item>
+        <item>Highs</item>
     </string-array>
     <string-array name="langNames">
         <item>Spanish</item>
         <item>English</item>
     </string-array>
+    <string name="pending">Pending</string>
+    <string name="assigned">Assigned</string>
+    <string name="solved">Solved</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">TODOfragment</string>
     <string name="noTitleMessage">ERROR, title is empty!</string>
+    <string name="resultDummy">Result</string>
 </resources>
