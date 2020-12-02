@@ -170,14 +170,14 @@ public class ListIncidenceFragment extends Fragment {
                 }
             });
 
-            switch (arrayListIncidencias.get(position).getPriorityIncidencia()){
-                case "0":
+            switch (arrayListIncidencias.get(position).getStaIncidencia()){
+                case 0:
                     viewHolder.imgPrior.setImageResource(R.drawable.rounded_red_button);
                     break;
-                case "1":
+                case 1:
                     viewHolder.imgPrior.setImageResource(R.drawable.rounded_orange_button);
                     break;
-                case "2":
+                case 2:
                     viewHolder.imgPrior.setImageResource(R.drawable.rounded_green_button);
                     break;
             }
